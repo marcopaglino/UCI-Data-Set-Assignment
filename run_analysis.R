@@ -47,7 +47,7 @@ run_analysis <- function(verbose=0) {
                 print(dim(MeasureUCI))
         }
         
-        # extract feature for mean and standade deviation
+        # extract feature for mean and standard deviation
         MeasureUCIrestr=MeasureUCI[,grep("subject|activity|[Mm]ean|std",names(MeasureUCI), value=T)]
 
         # labels the data set with descriptive variable names
@@ -56,5 +56,5 @@ run_analysis <- function(verbose=0) {
         if (verbose==1) { print("Creating tidy data set") }
         tidyDS=melt(MeasureUCIrestr, id=c("subject","activity")) %>% dcast(activity+subject ~ variable, mean)
         # write tidy data set
-        write.table(tidyDS, file="./tidyDS")
+        write.table(tidyDS, file="./tidyDS", row.names = F)
 }
