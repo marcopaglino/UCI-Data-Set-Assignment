@@ -8,6 +8,9 @@ indent: true
 
 ## UCI Data Set Assignment
 
+The raw data set , from UCI Data set, have been donwloaded and unzipped in the project directory, so the base folder is **UCI HAR Dataset**  
+
+
 The script run_analysis.R contains two functions :  
 * the main function  *run_analysis* that executes some transformations on original UCI data set, create the tidy data set and write it into a file  
 * the *loadDataSet* function that load the test and training data set
@@ -30,7 +33,7 @@ tidyDS=melt(MeasureUCIrestr, id=c("subject","activity")) %>% dcast(activity+subj
 ```
 Finally I write the data set to file using the write.table function. 
 
-### How to read the data set
+### How to read the tidy data set
 The data set can be read from file in this way: 
 ```  
 tidyDS<-read.table("./tidyDS")  
