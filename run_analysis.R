@@ -54,7 +54,7 @@ run_analysis <- function(verbose=0) {
         names(MeasureUCIrestr)[3:88]=paste("avg",names(MeasureUCIrestr)[3:88],sep=".")
         
         if (verbose==1) { print("Creating tidy data set") }
-        tidyDS=melt(MeasureUCIrestr, id=c("subject","activity")) %>% dcast(subject+activity ~ variable, mean)
+        tidyDS=melt(MeasureUCIrestr, id=c("subject","activity")) %>% dcast(activity+subject ~ variable, mean)
         # write tidy data set
         write.table(tidyDS, file="./tidyDS")
 }
